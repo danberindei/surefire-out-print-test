@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>org.example</groupId>
+   <artifactId>aaa</artifactId>
+   <version>1.0.0-SNAPSHOT</version>
+   <packaging>jar</packaging>
+
+   <properties>
+      <version.java>8</version.java>
+   </properties>
+
+   <dependencies>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.12</version>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+               <release>${version.java}</release>
+               <source>${version.java}</source>
+               <target>${version.java}</target>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+            <configuration>
+               <forkCount>1</forkCount>
+               <reuseForks>true</reuseForks>
+               <parallel>classes</parallel>
+               <threadCount>4</threadCount>
+               <properties>
+                  <usedefaultlisteners>false</usedefaultlisteners>
+                  <listener>org.example.JUnitTestListener</listener>
+               </properties>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+</project>
