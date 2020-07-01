@@ -1,0 +1,1 @@
+# surefire-out-print-test
